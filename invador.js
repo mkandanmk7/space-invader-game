@@ -99,16 +99,31 @@ function gameEnd() {
     result.className = "result";
     result.innerText = "You Won 🏆";
     container.append(result);
-  } else if (allEnemiesSize !== 0 && enemies.top > 650) {
-    const container = document.querySelector("#background");
-    const result = document.createElement("div");
-    result.className = "result";
-    result.innerText = "You Lose 🏆";
-    container.append(result);
+    clearInterval(clearAll);
+    document.onkeydown = null;
+  } else {
+    for (enemy = 0; enemy < enemies.length; enemy++) {
+      if (enemies[enemy].top >= hero.top - 40) {
+        container = document.querySelector("#background");
+        result = document.createElement("div");
+        result.className = "result";
+        result.innerText = "You Lose 🤦";
+        container.append(result);
+        clearInterval(clearAll);
+        document.onkeydown = null;
+      }
+    }
   }
+  // if (allEnemiesSize !== 0 && enemies.top > 650) {
+  //   const container = document.querySelector("#background");
+  //   const result = document.createElement("div");
+  //   result.className = "result";
+  //   result.innerText = "You Lose 🏆";
+  //   container.append(result);
+  // }
 }
 
-setInterval(() => {
+clearAll = setInterval(() => {
   updateEnemiesPosition();
   drawEnemies();
   updateMissilesPosition();
