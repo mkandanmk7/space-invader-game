@@ -1,4 +1,4 @@
 # Space Invaders Game
 
 
-[Link to view demo](https://space-invaders.rvsp.vercel.app/)
+[Click Here](https://space-invaders.rvsp.vercel.app/) to view the deployed site.
